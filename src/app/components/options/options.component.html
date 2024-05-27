@@ -1,0 +1,15 @@
+<button *ngFor="let option of options; let i = index"
+        class="btn"
+        [ngClass]="{
+        'btn-submitted': submitted,
+        'btn-selected': option.selected,
+        'btn-wrong': submitted && option.selected && !option.isCorrect,
+        'btn-correct': submitted && option.isCorrect
+        }"
+        (click)="select(i)">
+  <span *ngIf="submitted && option.isCorrect" class="letter"><i class="bi bi-check-lg"></i></span>
+  <span *ngIf="submitted && option.selected && !option.isCorrect" class="letter"><i class="bi bi-x-lg"></i></span>
+  <span *ngIf="!submitted || submitted && !option.selected && !option.isCorrect"
+        class="letter">{{letterOptions[i]}}</span>
+  <span class="option">{{option.text}}</span>
+</button>

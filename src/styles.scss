@@ -1,0 +1,91 @@
+/* You can add global styles to this file, and also import other style files */
+
+/* Importing Bootstrap SCSS file. */
+@import 'bootstrap/scss/bootstrap';
+@import 'bootstrap-icons/font/bootstrap-icons';
+@import 'assets/styles/theme';
+
+@font-face {
+  font-family: 'Tw Cen MT Condensed';
+  src: url('/assets/fonts/Tw Cen MT Condensed.ttf');
+}
+
+@font-face {
+  font-family: 'Segoe UI';
+  src: url('/assets/fonts/Segoe UI.ttf');
+}
+
+@font-face {
+  font-family: "Segoe UI";
+  src: url("/assets/fonts/Segoe UI Bold.ttf");
+  font-weight: bold;
+}
+
+.btn-primary, .btn-primary:hover {
+  color: var(--bg);
+  background-color: var(--base);
+  border: 0;
+
+  &:disabled {
+    background-color: var(--bg);
+    border: 1px solid var(--disabled);
+    color: var(--disabled);
+  }
+}
+
+.btn-secondary, .btn-secondary:hover {
+  background-color: var(--bg);
+  border: 1px solid var(--base);
+  color: var(--base);
+
+  &:active {
+    border: 1px solid var(--base);
+    background-color: var(--base);
+  }
+}
+
+.dropdown-menu {
+  background-color: var(--menu-bg);
+}
+
+.dropdown-item {
+  cursor: pointer;
+
+  &:active {
+    background-color: var(--base);
+  }
+}
+
+h6 {
+  font-size: 16px;
+  margin: 10px 0;
+}
+
+.card-header {
+  text-align: center;
+}
+
+.card-footer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.block-header {
+  padding: 0 15px;
+  margin: 15px;
+  border-left: 2px solid var(--base);
+  font-size: 34px;
+  font-family: $font-family-header;
+  text-transform: uppercase;
+
+  &.main-header {
+    font-size: 4em;
+    padding: 15px;
+    margin: 15px 60px;
+
+    .main-subheader {
+      font-size: 0.5em;
+      margin-bottom: 0;
+    }
+  }
+}

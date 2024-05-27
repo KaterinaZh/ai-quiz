@@ -1,0 +1,51 @@
+@import '../../../assets/styles/theme';
+
+.battery {
+  position: relative;
+  display: flex;
+  width: 54px;
+  height: 18px;
+  align-items: stretch;
+
+  &-item {
+    width: 12px;
+    margin: 0 2px 0 0;
+    background-color: var(--menu-bg);
+    border: 1px solid var(--battery-empty);
+    cursor: pointer;
+
+    &-selected {
+      background-color: var(--battery);
+      border: 1px solid var(--battery);
+    }
+
+    &:first-child {
+      border-bottom-left-radius: 3px;
+      border-top-left-radius: 3px;
+    }
+
+    &:last-child {
+      border-bottom-right-radius: 3px;
+      border-top-right-radius: 3px;
+    }
+
+    &:hover {
+      border: 1px solid var(--battery);
+
+      .skill-tooltip {
+        display: inline-block;
+      }
+    }
+  }
+}
+
+.skill-tooltip {
+  display: none;
+  top: -15px;
+  left: -5px;
+  position: absolute;
+  width: 65px;
+  font-size: 10px;
+  text-align: center;
+  color: var(--battery);
+}

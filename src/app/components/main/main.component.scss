@@ -1,0 +1,88 @@
+@import '../../../assets/styles/theme';
+
+.container-fluid {
+  padding: 0;
+}
+
+.top-panel {
+  height: calc(100vh - 15px);
+  position: relative;
+}
+
+.quiz-background {
+  position: absolute;
+  max-height: 1000px;
+  height: 100%;
+  width: 95%;
+  background: url(../../../assets/images/quiz-background.png) right/auto 95% no-repeat;
+  animation-name: challenge-image;
+  animation-duration: 4s;
+}
+
+@keyframes challenge-image {
+  from {
+    background-position-x: 70%;
+    opacity: 0
+  }
+  to {
+    background-position-x: right;
+    opacity: 100%;
+  }
+}
+
+.info-panel {
+  position: absolute;
+  min-width: 300px;
+  width: 40%;
+  margin-left: 60px;
+  top: 20%;
+  padding: 20px;
+  background-color: var(--info);
+  border-radius: 5px;
+  white-space: pre-line;
+  font-size: 16px;
+
+  .btn {
+    margin-top: 20px;
+    margin-right: 20px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .info-panel {
+    margin-top: 0;
+    width: 85%;
+  }
+
+  .quiz-background {
+    background-size: 60%;
+    opacity: 10%;
+    animation-name: challenge-image-small;
+  }
+
+  @keyframes challenge-image-small {
+    from {
+      background-position-x: 70%;
+      opacity: 0
+    }
+    to {
+      background-position-x: right;
+      opacity: 10%;
+    }
+  }
+}
+
+.skill-block {
+  border-bottom: 1px solid var(--battery);
+}
+
+.skill-item {
+  margin: 5px 0 10px;
+  display: inline-flex;
+  width: 50%;
+  align-items: center;
+}
+
+.battery {
+  padding-right: 5px;
+}

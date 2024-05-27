@@ -1,0 +1,43 @@
+<div class="container-fluid">
+  <app-loader *ngIf="isLoading"></app-loader>
+  <div class="top-panel">
+    <div class="quiz-background"></div>
+    <h1 class="main-header block-header">AI Quiz</h1>
+    <div class="info-panel">
+      <div>
+        Check your skills by passing this quiz!
+        <br/>
+        Choose skills you would like to check:
+        <br/>
+        <div class="skill-block">
+          <h6>JavaScript Web Platform</h6>
+          <div *ngFor="let skill of skills | slice:0:4; let i = index" class="skill-item">
+            <ng-template *ngTemplateOutlet="batterySkill; context: {skill: skill}"></ng-template>
+          </div>
+        </div>
+        <div class="skill-block">
+          <h6>Frameworks</h6>
+          <div *ngFor="let skill of skills | slice:4:7; let i = index" class="skill-item">
+            <ng-template *ngTemplateOutlet="batterySkill; context: {skill: skill}"></ng-template>
+          </div>
+        </div>
+        <div class="skill-block">
+          <h6>T-Shape</h6>
+          <div *ngFor="let skill of skills | slice:7:9; let i = index" class="skill-item">
+            <ng-template *ngTemplateOutlet="batterySkill; context: {skill: skill}"></ng-template>
+          </div>
+        </div>
+
+        <button type="button" class="btn btn-primary" id="generate"
+                [disabled]="!buttonAvailable" (click)="generateQuiz()">
+          <i class="bi bi-magic"></i> Generate quiz
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #batterySkill let-skill="skill">
+  <app-battery class="battery" [skill]="skill.name" (skillUpdateEvent)="updateSkill($event)"></app-battery>
+  <span>{{skill.name}}</span>
+</ng-template>

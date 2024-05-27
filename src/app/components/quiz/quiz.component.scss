@@ -1,0 +1,135 @@
+@import '../../../assets/styles/theme';
+
+.card-header .btn {
+  padding-left: 0;
+  font-size: 20px;
+}
+
+.card-body {
+  height: calc(100vh - 150px);
+  overflow: auto;
+  padding: 20px 30px;
+}
+
+.question {
+  margin: 20px 0;
+  padding: 20px;
+  background-color: var(--question);
+  border-radius: 5px;
+}
+
+.question-correct {
+  background-color: var(--correct-question);
+}
+
+.question-wrong {
+  background-color: var(--wrong-question);
+}
+
+.blink {
+  animation-name: blink-animation;
+  animation-duration: 3s;
+}
+@keyframes blink-animation {
+  from {
+    background-color: var(--wrong-question);
+  }
+  to {
+    background-color: var(--question);
+  }
+}
+
+.theme {
+  position: relative;
+  padding-top: 5px;
+
+  h6 {
+    position: absolute;
+    left: 20%;
+    margin: 0;
+    width: 60%;
+    text-align: center;
+    top: 5px;
+    background-color: var(--theme);
+    color: var(--menu-bg);
+    border-radius: 50px;
+    padding: 7px;
+
+    &.correct-theme {
+      background-color: var(--correct);
+    }
+
+    &.wrong-theme {
+      background-color: var(--wrong);
+      color: var(--font);
+    }
+  }
+}
+
+.bi {
+  margin-right: 5px;
+}
+
+.counter {
+  position: absolute;
+  right: 2%;
+  padding: 0 10px;
+  border: 1px solid var(--battery-empty);
+  background-color: var(--menu-bg);
+  border-radius: 50px;
+  font-size: 0.9em;
+  color: #333;
+  cursor: pointer;
+
+  &.correct-counter {
+    background-color: var(--correct);
+    border-color: transparent;
+    color: var(--font);
+  }
+
+  &.wrong-counter {
+    background-color: var(--wrong);
+    border-color: transparent;
+    color: var(--font);
+  }
+}
+
+@media (max-width: 600px) {
+  .theme h6 {
+    left: 0;
+    width: 100%;
+  }
+}
+
+.quiz-report {
+  display: none;
+  position: relative;
+  padding: 50px;
+  width: 800px;
+
+  .main-header {
+    margin: 0 0 20px 0;
+  }
+
+  .quiz-date {
+    position: absolute;
+    right: 50px;
+    top: 50px;
+    background-color: var(--selected);
+    padding: 5px 20px;
+    border-radius: 50px;
+    font-size: 0.8em;
+  }
+
+  .correct-answers {
+    display: inline-block;
+    margin-top: 10px;
+    color: var(--correct-print);
+  }
+
+  .wrong-answers {
+    display: inline-block;
+    margin-top: 10px;
+    color: var(--wrong-print);
+  }
+}

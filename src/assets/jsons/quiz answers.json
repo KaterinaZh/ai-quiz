@@ -1,0 +1,347 @@
+[
+  {
+    "id": 1,
+    "skill": "Advanced TypeScript",
+    "question": "Which TypeScript utility type makes all properties of a type optional?",
+    "options": [
+      {
+        "text": "Readonly",
+        "isCorrect": false
+      },
+      {
+        "text": "Unique",
+        "isCorrect": false
+      },
+      {
+        "text": "Partial",
+        "isCorrect": true
+      },
+      {
+        "text": "Record",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "skill": "Advanced TypeScript",
+    "question": "What is the purpose of 'never' data type in TypeScript?",
+    "options": [
+      {
+        "text": "Used in function return types where an error is thrown",
+        "isCorrect": true
+      },
+      {
+        "text": "Used to define an empty set of values",
+        "isCorrect": false
+      },
+      {
+        "text": "Used to specify that a variable must never be assigned a value",
+        "isCorrect": false
+      },
+      {
+        "text": "Used to specify that a variable may have multiple types",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "skill": "Advanced TypeScript",
+    "question": "What does Pick utility function in TypeScript do?",
+    "options": [
+      {
+        "text": "Creates a new type by picking a set of properties from an existing type",
+        "isCorrect": true
+      },
+      {
+        "text": "Picks random elements from a type",
+        "isCorrect": false
+      },
+      {
+        "text": "Picks and removes a set of properties from an existing type",
+        "isCorrect": false
+      },
+      {
+        "text": "None of the above",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "skill": "Advanced TypeScript",
+    "question": "What is the keyof keyword used for in TypeScript?",
+    "options": [
+      {
+        "text": "Returns a type that represents all subsets of a given type",
+        "isCorrect": false
+      },
+      {
+        "text": "Produces a string or numeric literal union of keys in a type",
+        "isCorrect": true
+      },
+      {
+        "text": "Returns keys of a specific type in an object type",
+        "isCorrect": false
+      },
+      {
+        "text": "None of the above",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "skill": "Advanced TypeScript",
+    "question": "Which keyword is used to declare a custom type in TypeScript?",
+    "options": [
+      {
+        "text": "declare",
+        "isCorrect": false
+      },
+      {
+        "text": "type",
+        "isCorrect": true
+      },
+      {
+        "text": "typedef",
+        "isCorrect": false
+      },
+      {
+        "text": "custom",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "skill": "Novice HTML",
+    "question": "What does HTML stand for?",
+    "options": [
+      {
+        "text": "Higher Text Major Program",
+        "isCorrect": false
+      },
+      {
+        "text": "Hyper Text Markup Language",
+        "isCorrect": true
+      },
+      {
+        "text": "Higher Transfer Markup Language",
+        "isCorrect": false
+      },
+      {
+        "text": "Hyper Text Major Program",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "skill": "Novice HTML",
+    "question": "Which HTML attribute is used to set text in the center?",
+    "options": [
+      {
+        "text": "align:center",
+        "isCorrect": false
+      },
+      {
+        "text": "text-align:center",
+        "isCorrect": true
+      },
+      {
+        "text": "center",
+        "isCorrect": false
+      },
+      {
+        "text": "position:center",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "skill": "Novice HTML",
+    "question": "What does <!DOCTYPE html> declare?",
+    "options": [
+      {
+        "text": "That the version of HTML used is legacy HTML",
+        "isCorrect": false
+      },
+      {
+        "text": "The usage of HTML5 standards",
+        "isCorrect": true
+      },
+      {
+        "text": "The browser version being used",
+        "isCorrect": false
+      },
+      {
+        "text": "Nothing, it's a comment",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "id": 9,
+    "skill": "Novice HTML",
+    "question": "Which HTML tag is used to divide a page vertically?",
+    "options": [
+      {
+        "text": "<div>",
+        "isCorrect": true
+      },
+      {
+        "text": "<br>",
+        "isCorrect": false
+      },
+      {
+        "text": "<head>",
+        "isCorrect": false
+      },
+      {
+        "text": "<title>",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "id": 10,
+    "skill": "Novice HTML",
+    "question": "How do you create a hyperlink in HTML?",
+    "options": [
+      {
+        "text": "Using the <link> tag",
+        "isCorrect": false
+      },
+      {
+        "text": "Using the <a> tag",
+        "isCorrect": true
+      },
+      {
+        "text": "Using the <href> tag",
+        "isCorrect": false
+      },
+      {
+        "text": "Using the <hyperlink> tag",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "id": 11,
+    "skill": "Expert CSS",
+    "question": "Which one of these is a valid CSS comment?",
+    "options": [
+      {
+        "text": "// this is a comment",
+        "isCorrect": false
+      },
+      {
+        "text": "/* this is a comment */",
+        "isCorrect": true
+      },
+      {
+        "text": "<!-- this is a comment -->",
+        "isCorrect": false
+      },
+      {
+        "text": "#{ this is a comment }",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "id": 12,
+    "skill": "Expert CSS",
+    "question": "Which CSS property is used to adjust the space between the letters in a text?",
+    "options": [
+      {
+        "text": "letter-spacing",
+        "isCorrect": true
+      },
+      {
+        "text": "text-indent",
+        "isCorrect": false
+      },
+      {
+        "text": "text-align",
+        "isCorrect": false
+      },
+      {
+        "text": "line-height",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "id": 13,
+    "skill": "Expert CSS",
+    "question": "What value would you assign to the 'display' property for a box model to be rendered as an inline level and block level?",
+    "options": [
+      {
+        "text": "block-inline",
+        "isCorrect": false
+      },
+      {
+        "text": "inline-block",
+        "isCorrect": true
+      },
+      {
+        "text": "inline",
+        "isCorrect": false
+      },
+      {
+        "text": "block",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "id": 14,
+    "skill": "Expert CSS",
+    "question": "How do you insert a comment in a CSS file?",
+    "options": [
+      {
+        "text": "// This is a comment",
+        "isCorrect": false
+      },
+      {
+        "text": "/* This is a comment */",
+        "isCorrect": true
+      },
+      {
+        "text": "# This is a comment",
+        "isCorrect": false
+      },
+      {
+        "text": "<!-- This is a comment -->",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "id": 15,
+    "skill": "Expert CSS",
+    "question": "What does Z-Index do in CSS?",
+    "options": [
+      {
+        "text": "It shrinks the size of the element",
+        "isCorrect": false
+      },
+      {
+        "text": "It changes the background-color of an element",
+        "isCorrect": false
+      },
+      {
+        "text": "It specifies the stack order of an element",
+        "isCorrect": true
+      },
+      {
+        "text": "It adds a shadow to an element",
+        "isCorrect": false
+      }
+    ]
+  }
+]

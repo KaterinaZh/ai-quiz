@@ -1,0 +1,8 @@
+<div class="battery">
+  <div *ngFor="let level of levels; let i = index"
+       class="battery-item"
+       [ngClass]="{'battery-item-selected' : i + 1<=skillLevel}"
+       (click)="updateSkill(i + 1)">
+    <span class="skill-tooltip">{{level}}</span>
+  </div>
+</div>

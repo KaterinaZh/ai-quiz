@@ -1,0 +1,70 @@
+<app-loader *ngIf="isLoading"></app-loader>
+
+<div class="d-flex min-vh-100 justify-content-center align-items-center">
+  <div class="card col-10">
+    <h5 class="card-header">
+      AI Quiz
+      <span *ngIf="submitted" class="counter"
+            [ngClass]="{'correct-counter': submitted && correctAnswersPercent > 79,
+        'wrong-counter': submitted && correctAnswersPercent < 80}"
+            ngbTooltip="{{correctAnswersPercent}}%">
+        {{correctAnswersAmount}}/{{questionsAmount}}</span>
+    </h5>
+    <div class="card-body">
+      <div id="quiz">
+        <div *ngFor="let theme of quizTheme; let i = index" class="theme">
+          <h6 [ngClass]="{'correct-theme': submitted && theme.percent && theme.percent > 79,
+        'wrong-theme': submitted && theme.percent !== undefined && theme.percent < 80}">
+            {{theme.skill}}
+            <span *ngIf="submitted" class="counter" ngbTooltip="{{theme.percent}}%">
+            {{theme.correctAnswers}}/{{theme.questions.length}}
+          </span>
+          </h6>
+          <div *ngFor="let question of theme.questions; let i = index"
+               class="question"
+               id="question-{{question.id}}"
+               [ngClass]="{'question-wrong': submitted && !question.correctAnswer,
+             'question-correct': submitted && question.correctAnswer }">
+            {{i + 1}}. {{question.question}}
+            <div>
+              <app-options [loading]="isLoading"
+                           [submitted]="submitted" [options]="question.options" [questionId]="question.id"
+                           (optionChooseEvent)="chooseOption()"></app-options>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div *ngIf="submitted" id="quiz-report" class="quiz-report">
+        <h1 class="main-header block-header">AI Quiz results</h1>
+        <span class="quiz-date">{{submitDate | date}}</span>
+        <div [ngClass]="{'correct-answers': submitted && correctAnswersPercent > 79,
+        'wrong-answers': submitted && correctAnswersPercent < 80}">
+          Total: {{correctAnswersPercent}}% ({{correctAnswersAmount}}/{{questionsAmount}})
+        </div>
+        <div *ngFor="let theme of quizTheme; let i = index">
+          <span [ngClass]="{'correct-answers': submitted && theme.percent && theme.percent > 79,
+        'wrong-answers': submitted && theme.percent !== undefined && theme.percent < 80}">
+            {{theme.skill}}: {{theme.percent}}% ({{theme.correctAnswers}}/{{theme.questions.length}})</span>
+          <ng-container *ngIf="theme.percent && theme.percent < 100">
+            <div>Failed question(s):</div>
+            <ng-container *ngFor="let question of theme.questions; let i = index">
+              <div *ngIf="!question.correctAnswer">{{question.question}}</div>
+            </ng-container>
+          </ng-container>
+        </div>
+      </div>
+    </div>
+    <div class="card-footer">
+      <button type="button" class="btn btn-secondary" (click)="back()"
+              ngbTooltip="To main page">{{submitted ? 'Back' : 'Cancel'}}
+      </button>
+      <button *ngIf="!submitted" type="button" class="btn btn-primary" [disabled]="isLoading"
+              (click)="onSubmit()"><i class="bi bi-clipboard-check"></i>Submit
+      </button>
+      <button *ngIf="submitted" type="button" class="btn btn-primary" [disabled]="isLoading"
+              (click)="loadReport()"><i class="bi bi-download"></i>PDF report
+      </button>
+    </div>
+  </div>
+</div>
