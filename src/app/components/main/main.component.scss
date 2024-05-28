@@ -50,8 +50,12 @@
 
 @media (max-width: 1200px) {
   .info-panel {
-    margin-top: 0;
-    width: 85%;
+    margin: 0 20px;
+    width: calc(100% - 40px);
+  }
+
+  .block-header.main-header {
+    margin-left: 20px;
   }
 
   .quiz-background {
