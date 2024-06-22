@@ -1,8 +1,36 @@
 import {HttpClient} from '@angular/common/http';
 import {Injectable} from '@angular/core';
 import {Skill} from "../models/skill.model";
-import {delay, Observable, of} from "rxjs";
+import {delay, map, Observable, of} from "rxjs";
 import {Question, SolvedQuestion} from "../models/quiz.model";
+
+const API_ROOT = 'http://159.89.1.182:5000/';
+
+type QuizCreatedDTO = {
+  id: string;
+  status: string;
+}
+
+type AnswerDTO = {
+  id: string;
+  body: string;
+  isCorrect: boolean;
+}
+
+type QuestionDTO = {
+  answers: AnswerDTO[];
+  id: string;
+  level: string;
+  question: string;
+  topic: string;
+}
+
+type QuizDTO = {
+  quiz: {
+    id: string;
+    questions: QuestionDTO[];
+  }
+}
 
 @Injectable({
   providedIn: 'root'
@@ -11,31 +39,42 @@ export class QuizService {
 
   public skills: Skill[] = [{name: 'HTML'}, {name: 'CSS'}, {name: 'JavaScript'}, {name: 'TypeScript'},
     {name: 'ReactJS'}, {name: 'Angular'}, {name: 'VueJS'}, {name: 'Node.js'}, {name: 'Cloud fundamentals'}];
-  private readonly SKILLS = '/api/skills';
-  private readonly QUIZ = '/api/quiz';
+  private readonly SKILLS = `${API_ROOT}quiz/generate`;
+  private readonly QUIZ = `${API_ROOT}quiz`;
   private readonly QUIZ_FILE = 'assets/jsons/quiz.json';
   private readonly QUIZ_ANSWERS_FILE = 'assets/jsons/quiz answers.json';
 
   constructor(private http: HttpClient) {
   }
 
-  public generateQuiz(skills: Skill[]): Observable<number> {
-    return of(1);
-    // TODO: add post request which returns id of quiz
-    // return this.http.post(this.SKILLS, {
-    //   skills
-    // });
+  private convertQuizDTOToQuiz(quizDTO: QuizDTO) {
+    return quizDTO.quiz.questions.map((question) => ({
+      id: question.id,
+      skill: question.topic,
+      question: question.question,
+      options: question.answers.map((answer) => ({
+        text: answer.body,
+        id: answer.id,
+        isCorrect: answer.isCorrect || undefined,
+      }))
+    }))
   }
 
-  public getQuiz(id: number): Observable<Question[]> {
-    return this.http.get<Question[]>(this.QUIZ_FILE).pipe(delay(1000));
-    // TODO: add get request which returns quiz by id
-    // return this.http.get(`${this.QUIZ}/${id}`);
+  public generateQuiz(topics: Skill[]): Observable<QuizCreatedDTO> {
+    return this.http.post<QuizCreatedDTO>(this.SKILLS, {
+      topics,
+    });
   }
 
-  public submitQuiz(quiz: SolvedQuestion[]): Observable<Question[]> {
-    return this.http.get<Question[]>(this.QUIZ_ANSWERS_FILE).pipe(delay(1000));
-    // TODO: add get request which returns quiz by id
-    // return this.http.post<Question[]>(this.QUIZ, {quiz});
+  public getQuiz(id: string): Observable<Question[]> {
+    return this.http.get<QuizDTO>(`${this.QUIZ}/${id}`).pipe(map((response) => this.convertQuizDTOToQuiz(response)));
+  }
+
+  public submitQuiz(id: string, quiz: SolvedQuestion[]): Observable<Question[]> {
+    console.log(quiz, 'SOLVED QUESTIONS');
+
+    const answers = Object.fromEntries(quiz.map(({ questionId, selected }) => [questionId, selected]));
+
+    return this.http.post<QuizDTO>(`${this.QUIZ}/${id}`, { answers }).pipe(map((response) => this.convertQuizDTOToQuiz(response)));
   }
 }

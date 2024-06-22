@@ -19,7 +19,7 @@ export class QuizComponent implements OnInit {
   public correctAnswersAmount: number = 0;
   public correctAnswersPercent: number = 0;
   public submitDate = new Date();
-  private quizId: number = 0;
+  private quizId: string = '0';
 
   constructor(private quizService: QuizService,
               private router: Router,
@@ -86,11 +86,11 @@ export class QuizComponent implements OnInit {
     let q: SolvedQuestion[] = this.quizTheme.map(t => {
       return t.questions;
     }).flat().map(q => {
-      return {questionId: q.id, selected: q.options.findIndex(o => o.selected)}
+      return {questionId: q.id, selected: q.options.find(o => o.selected)?.id || '0'}
     });
     console.log(q);
     this.correctAnswersAmount = 0;
-    this.quizService.submitQuiz(q).subscribe(res => {
+    this.quizService.submitQuiz(this.quizId, q).subscribe(res => {
       this.quizTheme.map(qt => {
         let correctAnswers: number = 0;
         qt.questions.map(q => {

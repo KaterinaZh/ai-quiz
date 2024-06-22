@@ -9,15 +9,15 @@ import {Option} from "../../models/quiz.model";
 export class OptionsComponent {
   @Input() loading: boolean = false;
   @Input() submitted: boolean = false;
-  @Input() questionId: number = 0;
+  @Input() questionId: string = '0';
   @Input() options: Option[] = [];
   @Output() optionChooseEvent = new EventEmitter();
   public letterOptions: string[] = ['A', 'B', 'C', 'D'];
 
-  public select(index: number) {
+  public select(id: string) {
     if (this.loading || this.submitted) return;
-    this.options.map((o, i) =>
-      o.selected = i === index
+    this.options.map((option) =>
+      option.selected = id === option.id
     );
     this.optionChooseEvent.emit();
   }

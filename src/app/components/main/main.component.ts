@@ -34,7 +34,7 @@ export class MainComponent implements OnInit {
     this.isLoading = true;
     this.buttonAvailable = false;
     const skillsToSend: Skill[] = this.skills.filter(s => s.level !== undefined);
-    this.quizService.generateQuiz(skillsToSend).subscribe(id => {
+    this.quizService.generateQuiz(skillsToSend).subscribe(({ id }) => {
       this.isLoading = false;
       this.router.navigate(['/quiz/' + id]);
     });

@@ -1,5 +1,5 @@
 export interface Question {
-  id: number;
+  id: string;
   skill: string;
   question: string;
   options: Option[];
@@ -8,6 +8,7 @@ export interface Question {
 
 export interface Option {
   text: string;
+  id: string;
   isCorrect?: boolean;
   selected?: boolean;
 }
@@ -20,6 +21,6 @@ export interface QuizTheme {
 }
 
 export interface SolvedQuestion {
-  questionId: number;
-  selected: number; // index of option from 0 to 3
+  questionId: string;
+  selected: string; // index of option from 0 to 3
 }
