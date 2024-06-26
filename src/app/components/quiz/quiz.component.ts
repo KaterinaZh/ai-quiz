@@ -105,10 +105,10 @@ export class QuizComponent implements OnInit {
           }
         });
         qt.correctAnswers = correctAnswers;
-        qt.percent = correctAnswers * 100 / qt.questions.length;
+        qt.percent = Math.round(correctAnswers * 100 / qt.questions.length);
         this.correctAnswersAmount += qt.correctAnswers;
       });
-      this.correctAnswersPercent = this.correctAnswersAmount * 100 / this.questionsAmount;
+      this.correctAnswersPercent = Math.round(this.correctAnswersAmount * 100 / this.questionsAmount);
       this.submitted = true;
       this.isLoading = false;
       this.goTo('quiz');
