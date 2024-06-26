@@ -4,7 +4,7 @@ import {Skill} from "../models/skill.model";
 import {delay, map, Observable, of} from "rxjs";
 import {Question, SolvedQuestion} from "../models/quiz.model";
 
-const API_ROOT = 'http://159.89.1.182:5000/';
+const API_ROOT = '/api/';
 
 type QuizCreatedDTO = {
   id: string;
